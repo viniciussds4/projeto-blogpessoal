@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPip
 import { PostagemService } from "../services/postagem.service";
 import { Postagem } from "../entities/postagem.entity";
 
-@Controller("/postagen")
+@Controller("/postagem")
 export class PostagemController{
     constructor(private readonly postagemService: PostagemService){}
 
@@ -25,6 +25,7 @@ export class PostagemController{
   }
  
   @Post()
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() postagem: Postagem): Promise<Postagem>{
      return this.postagemService.create(postagem);
   }

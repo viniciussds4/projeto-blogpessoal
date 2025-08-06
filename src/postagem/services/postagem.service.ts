@@ -15,7 +15,8 @@ constructor(
   async findAll(): Promise<Postagem[]>{
     return await this.postagemRepository.find({
       relations:{
-        tema:true
+        tema:true,
+        usuario: true
       }
     }); //vai buscar uma lista dentro do banco de dados através da postagem
   }
@@ -25,7 +26,8 @@ constructor(
             id 
         },
         relations:{
-          tema: true
+          tema: true,
+          usuario: true
         }
     });
 
@@ -42,7 +44,8 @@ constructor(
             titulo: ILike(`%${titulo}%`)
         },
         relations:{
-          tema: true
+          tema: true,
+          usuario: true
         }
     });
   }
